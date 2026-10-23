@@ -1,5 +1,7 @@
 # ZeusX beobachten
 
+Die Beobachtung ist jetzt auch direkt in [ChaxterLog ab Version 1.3.0](https://github.com/n-bross/chaxterlog-live-activity) eingebaut. Für den gemeinsamen Ablauf mit Live Activity nur ChaxterLog aktualisieren; dieses separate Projekt ist dafür nicht mehr nötig.
+
 Passiver Beobachter für die ZeusX-Seite der Stadt Grafing in der iOS-App [Scripting](https://scriptingapp.github.io/). Er zeichnet die sichtbare Rückmeldung nach einem selbst ausgeführten Tipp auf **Kommt/Geht** auf. Das hilft, Buchungsbestätigung und Saldo später zuverlässig in der ChaxterLog Live Activity anzuzeigen.
 
 ## Benutzen
