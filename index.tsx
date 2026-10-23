@@ -22,7 +22,7 @@ async function main() {
   }
   const records: Observation[] = []
   const browser = new WebViewController({ ephemeral: true })
-  let timer: ReturnType<typeof setInterval> | undefined
+  let timer: ReturnType<typeof setTimeout> | undefined
   let installing = false
   let closed = false
   try {
@@ -47,11 +47,16 @@ async function main() {
     }
     // Login and navigation replace the document; reinstall in the new page without interacting.
     await install()
-    timer = setInterval(() => { void install() }, 250)
+    // Scripting guarantees setTimeout/clearTimeout, but does not provide setInterval.
+    const tick = async () => {
+      await install()
+      if (!closed) timer = setTimeout(() => { void tick() }, 250)
+    }
+    timer = setTimeout(() => { void tick() }, 250)
     await browser.present({ fullscreen: true, navigationTitle: "ZeusX · Beobachtung" })
   } finally {
     closed = true
-    if (timer !== undefined) clearInterval(timer)
+    if (timer !== undefined) clearTimeout(timer)
     browser.dispose()
   }
   if (!records.length) {

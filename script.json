@@ -3,7 +3,7 @@
   "icon": "eye",
   "color": "#00698C",
   "description": "Beobachtet ausschließlich selbst ausgelöste ZeusX-Stempelungen.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "runInApp": true,
   "intentInputTypes": []
 }

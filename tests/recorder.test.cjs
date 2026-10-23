@@ -26,7 +26,7 @@ test('login, observation and export store only the limited receipt data', async 
       async present() { handler({ ...record, password: 'do-not-store' }) }
       dispose() { disposed = true }
     },
-    setInterval: () => 1, clearInterval() {},
+    setTimeout: () => 1, clearTimeout() {},
   })
   vm.runInContext(compile('index.tsx').replace(/main\(\)\.catch\([\s\S]*$/, ''), context)
   await vm.runInContext('main()', context)
